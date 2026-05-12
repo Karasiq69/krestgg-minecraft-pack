@@ -1,57 +1,54 @@
-# KrestMC — Minecraft на krestgg
+# KrestGG Minecraft
 
-Самообновляющийся клиентский модпак для сервера сообщества Krest.
+Клиентский модпак для сервера сообщества Кресты.
 
-## Установка (один раз)
+- **Версия:** Minecraft `1.21.8`, Fabric Loader `0.19.2`
+- **Адрес сервера:** `185.207.214.12:37465`
 
-1. **Скачать Prism Launcher**: https://prismlauncher.org/download/ (portable работает без установки).
-2. **Скачать `KrestMC.zip`** из последнего релиза: https://github.com/Karasiq69/krestgg-minecraft-pack/releases/latest
-3. В Prism Launcher: `Add Instance` → `Import` → `Local file` → выбрать `KrestMC.zip`.
-4. Открыть созданный инстанс → `Edit` → `Settings` → вкладка `Accounts` → `Add Offline` → ввести свой ник.
-5. Нажать `Launch`. При первом запуске Prism скачает Fabric, Java и клиентские моды через packwiz.
+## Как зайти
 
-## Подключение к серверу
+Выбери способ под свой лаунчер — мир один, моды одинаковые.
 
-- **Адрес сервера:** уточни у админа (он один для всех).
-- В игре: `Multiplayer` → `Add Server` → вписать адрес.
+### Prism Launcher
 
-## Первый вход
+1. [Скачать Prism Launcher](https://prismlauncher.org/download/).
+2. Скачать **`KrestMC.zip`** из [последнего релиза](https://github.com/Karasiq69/krestgg-minecraft-pack/releases/latest).
+3. В Prism: `Add Instance` → `Import` → выбрать `KrestMC.zip`.
+4. Открыть инстанс → `Settings` → `Accounts` → `Add Offline` → ник.
+5. `Launch`. Моды скачаются автоматически и будут сами обновляться при выходе новых версий.
 
-- При первом входе на сервер: `/register <ваш-пароль> <ваш-пароль>` (запомни!).
-- При следующих входах: `/login <ваш-пароль>`.
+### Modrinth App / ATLauncher / GDLauncher
 
-## Обновления модов
+1. Скачать [**`KrestMC.mrpack`**](https://karasiq69.github.io/krestgg-minecraft-pack/KrestMC.mrpack).
+2. В лаунчере: `Add Instance` / `Import` → выбрать файл.
+3. Лаунчер сам поставит Minecraft, Fabric и моды.
 
-Когда модпак обновится — при следующем запуске игры моды докачаются сами. Ничего вручную делать не нужно.
+### Legacy Launcher (пиратка)
 
-## Что в паке
+1. [Скачать Legacy Launcher](https://llaun.ch/ru).
+2. В лаунчере выбрать версию `1.21.8` + установить `Fabric 0.19.2`.
+3. Запустить один раз, потом закрыть.
+4. В папке профиля (`%APPDATA%\.minecraft\mods\` на Windows, `~/Library/Application Support/minecraft/mods/` на macOS) положить пять `.jar` из таблицы ниже.
+5. Запустить, подключиться к серверу.
 
-Клиентские моды:
-- **Fabric API** — базовая библиотека Fabric.
-- **Fabric Language Kotlin** — runtime для Kotlin-модов.
-- **Plasmo Voice** — голосовой чат в игре.
-- **Sodium** — оптимизация рендера, больше FPS.
-- **Iris Shaders** — поддержка шейдеров (опционально).
+## Подключение и регистрация
 
-## Проблемы
+`Multiplayer` → `Add Server` → `185.207.214.12:37465`.
 
-- **Prism не находит Java 21**: `Settings` → `Java` → `Auto-detect` или укажи путь вручную.
-- **Не подключается к серверу**: проверь что используешь именно этот pack (Minecraft 1.21.8 + Fabric 0.19.2).
-- **Голосовой чат не работает**: убедись что в системе разрешён микрофон для Java.
-
-## Для разработчиков
-
-Pack собран через [packwiz](https://github.com/packwiz/packwiz). Обновление модов:
-```bash
-packwiz update --all
-packwiz refresh
-git add -A && git commit -m "chore: update mods" && git push
+Первый вход: в чате ввести
 ```
-
-Сборка нового `KrestMC.zip`:
-```bash
-./build-instance.sh
+/register твой_пароль твой_пароль
 ```
+В следующие разы — `/login твой_пароль`.
 
-`KrestMC.zip` приклеивается к GitHub Release; Pages раздаёт `pack.toml` по URL
-`https://karasiq69.github.io/krestgg-minecraft-pack/pack.toml`, который и зашит в pre-launch hook инстанса.
+## Моды (для ручной установки)
+
+| Мод | Версия | Modrinth | Прямая ссылка |
+|---|---|---|---|
+| Fabric API | 0.136.1+1.21.8 | [страница](https://modrinth.com/mod/fabric-api) | [.jar](https://cdn.modrinth.com/data/P7dR8mSH/versions/g58ofrov/fabric-api-0.136.1%2B1.21.8.jar) |
+| Fabric Language Kotlin | 1.13.11 | [страница](https://modrinth.com/mod/fabric-language-kotlin) | [.jar](https://cdn.modrinth.com/data/Ha28R6CL/versions/2i87JpYj/fabric-language-kotlin-1.13.11%2Bkotlin.2.3.21.jar) |
+| Plasmo Voice | 2.1.9 | [страница](https://modrinth.com/mod/plasmo-voice) | [.jar](https://cdn.modrinth.com/data/1bZhdhsH/versions/B2yGOZ6R/plasmovoice-fabric-1.21.6-2.1.9.jar) |
+| Sodium | 0.7.3 | [страница](https://modrinth.com/mod/sodium) | [.jar](https://cdn.modrinth.com/data/AANobbMI/versions/7pwil2dy/sodium-fabric-0.7.3%2Bmc1.21.8.jar) |
+| Iris Shaders | 1.9.6 | [страница](https://modrinth.com/mod/iris) | [.jar](https://cdn.modrinth.com/data/YL57xq9U/versions/Rhzf61g1/iris-fabric-1.9.6%2Bmc1.21.8.jar) |
+
+Необходимы: Fabric API, Fabric Language Kotlin, Plasmo Voice. Sodium и Iris — опционально (FPS и шейдеры).

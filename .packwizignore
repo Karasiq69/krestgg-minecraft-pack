@@ -9,5 +9,6 @@ prism-instance/
 dist/
 build-instance.sh
 *.zip
+*.mrpack
 *.swp
 *.DS_Store
