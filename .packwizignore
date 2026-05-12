@@ -1,0 +1,13 @@
+.git/
+.idea/
+.github/
+.gitignore
+.packwizignore
+README.md
+LICENSE
+prism-instance/
+dist/
+build-instance.sh
+*.zip
+*.swp
+*.DS_Store
