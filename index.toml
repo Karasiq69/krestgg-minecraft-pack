@@ -1,6 +1,11 @@
 hash-format = "sha256"
 
 [[files]]
+file = "mods/easywhitelist.pw.toml"
+hash = "73676c3479246a54890fc2f4518470593f97cbc57525839626738a5efce06b4f"
+metafile = true
+
+[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "54e3cc9a3c2a05cc879ffda7f4c97a89be0b648421d6c8fe92e2d3e5761abf20"
 metafile = true
@@ -11,13 +16,38 @@ hash = "337d97b990f76c91584b12600651ae7bd47a0824e45070b3d9330b0922149fc0"
 metafile = true
 
 [[files]]
+file = "mods/fastback.pw.toml"
+hash = "463718c1cb11f6a125a1d53dc40a1fbbc9ba0c532fa6b59e1a5bebd6be8da8f6"
+metafile = true
+
+[[files]]
 file = "mods/iris.pw.toml"
 hash = "8d40436970d9adcfe3c0b72c9f0cd1af217948469b091b0f07ca3df187ce2e61"
 metafile = true
 
 [[files]]
+file = "mods/ledger.pw.toml"
+hash = "df8622c19caa49353b659ae54d630f7203b60e08bb951404f0bcd73a73ff7ee4"
+metafile = true
+
+[[files]]
+file = "mods/lithium.pw.toml"
+hash = "afa18a181b314fa61babe340011dca12ec4dc276bcfc90bd82c9f9d9d471839e"
+metafile = true
+
+[[files]]
+file = "mods/luckperms.pw.toml"
+hash = "5e7d7f0551f95f2f496098b0eb9f3ed4d5942ce981f4eb9e1f80c1a83ef19058"
+metafile = true
+
+[[files]]
 file = "mods/plasmo-voice.pw.toml"
 hash = "4764c981efef41ce1f104bf7ffaafe1c1bed0b1fba18b5d36c5e174905335d55"
+metafile = true
+
+[[files]]
+file = "mods/simple-login.pw.toml"
+hash = "759061859788733de790bffd01d2e56d879b240d75f823885440e8e717fbb74e"
 metafile = true
 
 [[files]]

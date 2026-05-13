@@ -1,0 +1,13 @@
+name = "Simple Login"
+filename = "simplelogin-fabric-1.21.8-1.0.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/Gh3tnMca/versions/QxHWAr06/simplelogin-fabric-1.21.8-1.0.1.jar"
+hash-format = "sha512"
+hash = "d43b5710ca8871501d410b85794cdfbab4c8861e1bad4ed8a5224bf4b7ecc8b6e2f729fbcfefc720e0691e3a6796998b8ff183893eed321403fa12fb1e8c9727"
+
+[update]
+[update.modrinth]
+mod-id = "Gh3tnMca"
+version = "QxHWAr06"
