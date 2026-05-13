@@ -32,3 +32,20 @@ npm start
 ```bash
 docker build -t krestgg-mcbot:latest discord-bot/
 ```
+
+## HTTP API
+
+Бот поднимает HTTP-сервер на порту `8080` (override: `HTTP_PORT` env var) для лендинга. Single endpoint:
+
+```
+GET /status → 200 application/json
+```
+
+Шейпы ответа:
+
+```json
+{"online": true,  "players": {"current": 3, "max": 30}}
+{"online": false, "players": {"current": 0, "max": 0}}
+```
+
+Без секретов в ответе. Внутренне читает SLP-кэш (TTL 10s), так что не нагружает MC.
