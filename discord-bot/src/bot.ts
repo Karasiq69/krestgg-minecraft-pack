@@ -4,7 +4,7 @@ import {
   ActivityType,
   Events,
 } from 'discord.js';
-import { config, PRESENCE_INTERVAL_MS } from './config.js';
+import { config, PRESENCE_INTERVAL_MS, PUBLIC_ADDRESS } from './config.js';
 import { pingServer } from './slp.js';
 import { deployCommands } from './commands/deploy.js';
 import { handleStatus } from './commands/status.js';
@@ -17,7 +17,7 @@ let presenceTimer: NodeJS.Timeout | null = null;
 async function updatePresence(): Promise<void> {
   if (!client?.user) return;
   const r = await pingServer();
-  const text = r ? `${r.online}/${r.max}` : 'Сервер офлайн';
+  const text = r ? `${r.online}/${r.max} | ${PUBLIC_ADDRESS}` : `Сервер офлайн | ${PUBLIC_ADDRESS}`;
   client.user.setActivity(text, { type: ActivityType.Custom });
 }
 
