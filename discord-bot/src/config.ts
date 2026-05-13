@@ -22,7 +22,7 @@ export const config = {
 
 export const HOST = 'krestmc';
 export const RCON_PORT = 25575;
-export const SLP_PORT = 25565;
+export const SLP_PORT = 37465;
 export const PRESENCE_INTERVAL_MS = 30_000;
 export const SLP_CACHE_TTL_MS = 10_000;
 export const RCON_RECONNECT_BASE_MS = 1_000;

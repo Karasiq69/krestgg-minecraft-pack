@@ -1,20 +1,26 @@
-import { ChatInputCommandInteraction, GuildMember } from 'discord.js';
+import { ChatInputCommandInteraction, GuildMember, PermissionFlagsBits, PermissionsBitField } from 'discord.js';
 import { config } from '../config.js';
 import { sendCommand } from '../rcon.js';
 import { sendAudit } from '../audit.js';
 
 const NICK_PATTERN = /^[A-Za-z0-9_]{3,16}$/;
 
-function hasModRole(member: unknown): boolean {
+function isAuthorized(member: unknown): boolean {
   if (!member || typeof member !== 'object') return false;
   const gm = member as GuildMember;
+
+  const perms = gm.permissions;
+  if (perms instanceof PermissionsBitField && perms.has(PermissionFlagsBits.Administrator)) {
+    return true;
+  }
+
   return gm.roles?.cache?.has(config.discord.modRoleId) ?? false;
 }
 
 export async function handleWhitelist(
   interaction: ChatInputCommandInteraction,
 ): Promise<void> {
-  if (!hasModRole(interaction.member)) {
+  if (!isAuthorized(interaction.member)) {
     await interaction.reply({ content: '❌ Нет прав', ephemeral: true });
     return;
   }
