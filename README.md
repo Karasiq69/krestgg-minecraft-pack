@@ -9,46 +9,68 @@
 
 Выбери способ под свой лаунчер — мир один, моды одинаковые.
 
-### Prism Launcher
+### Prism Launcher / PolyMC / MultiMC (рекомендуется)
 
-1. [Скачать Prism Launcher](https://prismlauncher.org/download/).
-2. Скачать **`KrestMC.zip`** из [последнего релиза](https://github.com/Karasiq69/krestgg-minecraft-pack/releases/latest).
-3. В Prism: `Add Instance` → `Import` → выбрать `KrestMC.zip`.
-4. Открыть инстанс → `Settings` → `Accounts` → `Add Offline` → ник.
-5. `Launch`. Моды скачаются автоматически и будут сами обновляться при выходе новых версий.
+Работает с offline-аккаунтами (пиратки). Моды обновляются автоматически при каждом запуске.
+
+1. Скачать [Prism Launcher](https://prismlauncher.org/download/) (или PolyMC / MultiMC — workflow идентичен).
+2. `Add Account` → `Offline` → ник.
+3. Скачать **`KrestMC.zip`** из [последнего релиза](https://github.com/karasiq69/krestgg-minecraft-pack/releases/latest).
+4. `Add Instance` → `Import` → выбрать `KrestMC.zip`.
+5. `Launch` — моды скачаются автоматически и будут сами обновляться при выходе новых версий.
 
 ### Modrinth App / ATLauncher / GDLauncher
 
-1. Скачать [**`KrestMC.mrpack`**](https://karasiq69.github.io/krestgg-minecraft-pack/KrestMC.mrpack).
+1. Скачать **`KrestMC.mrpack`** из [последнего релиза](https://github.com/karasiq69/krestgg-minecraft-pack/releases/latest).
 2. В лаунчере: `Add Instance` / `Import` → выбрать файл.
 3. Лаунчер сам поставит Minecraft, Fabric и моды.
 
-### Legacy Launcher (пиратка)
+### TLauncher / Legacy Launcher / любой простой лаунчер
 
-1. [Скачать Legacy Launcher](https://llaun.ch/ru).
-2. В лаунчере выбрать версию `1.21.8` + установить `Fabric 0.19.2`.
-3. Запустить один раз, потом закрыть.
-4. В папке профиля (`%APPDATA%\.minecraft\mods\` на Windows, `~/Library/Application Support/minecraft/mods/` на macOS) положить пять `.jar` из таблицы ниже.
-5. Запустить, подключиться к серверу.
+1. [Скачать TLauncher](https://llaun.ch/ru) (или Legacy Launcher).
+2. В лаунчере выбрать версию `1.21.8` + установить `Fabric 0.19.2`. Запустить один раз и закрыть (создаст профиль).
+3. Скачать **`KrestMC-mods.zip`** из [последнего релиза](https://github.com/karasiq69/krestgg-minecraft-pack/releases/latest).
+4. Распаковать **содержимое** zip в папку с модами:
+   - **Windows:** `%APPDATA%\.minecraft\mods\`
+   - **macOS:** `~/Library/Application Support/minecraft/mods/`
+   - **Linux:** `~/.minecraft/mods/`
+5. Запустить лаунчер, подключиться к серверу.
+
+**Когда выйдет обновление пака:** удалить всё из папки `mods/`, распаковать свежий `KrestMC-mods.zip`.
 
 ## Подключение и регистрация
 
 `Multiplayer` → `Add Server` → `185.207.214.12:37465`.
 
-Первый вход: в чате ввести
+Первый вход:
 ```
 /register твой_пароль твой_пароль
 ```
-В следующие разы — `/login твой_пароль`.
+В следующие разы: `/login твой_пароль`.
 
-## Моды (для ручной установки)
+---
 
-| Мод | Версия | Modrinth | Прямая ссылка |
-|---|---|---|---|
-| Fabric API | 0.136.1+1.21.8 | [страница](https://modrinth.com/mod/fabric-api) | [.jar](https://cdn.modrinth.com/data/P7dR8mSH/versions/g58ofrov/fabric-api-0.136.1%2B1.21.8.jar) |
-| Fabric Language Kotlin | 1.13.11 | [страница](https://modrinth.com/mod/fabric-language-kotlin) | [.jar](https://cdn.modrinth.com/data/Ha28R6CL/versions/2i87JpYj/fabric-language-kotlin-1.13.11%2Bkotlin.2.3.21.jar) |
-| Plasmo Voice | 2.1.9 | [страница](https://modrinth.com/mod/plasmo-voice) | [.jar](https://cdn.modrinth.com/data/1bZhdhsH/versions/B2yGOZ6R/plasmovoice-fabric-1.21.6-2.1.9.jar) |
-| Sodium | 0.7.3 | [страница](https://modrinth.com/mod/sodium) | [.jar](https://cdn.modrinth.com/data/AANobbMI/versions/7pwil2dy/sodium-fabric-0.7.3%2Bmc1.21.8.jar) |
-| Iris Shaders | 1.9.6 | [страница](https://modrinth.com/mod/iris) | [.jar](https://cdn.modrinth.com/data/YL57xq9U/versions/Rhzf61g1/iris-fabric-1.9.6%2Bmc1.21.8.jar) |
+## Для контрибьюторов: как добавить мод
 
-Необходимы: Fabric API, Fabric Language Kotlin, Plasmo Voice. Sodium и Iris — опционально (FPS и шейдеры).
+Установить [packwiz](https://github.com/packwiz/packwiz):
+```bash
+go install github.com/packwiz/packwiz@latest
+```
+
+Добавить мод:
+```bash
+cd krestgg-minecraft-pack
+packwiz mr add <slug> -y
+# При необходимости поправить side в mods/<slug>.pw.toml:
+#   client — только клиенту (sodium, iris, distant-horizons)
+#   server — только серверу (lithium, luckperms, fastback и т.д.)
+#   both   — обоим (fabric-api, plasmo-voice, kotlin)
+packwiz refresh
+git add . && git commit -m "add <slug>" && git push
+```
+
+После push:
+- GH Pages обновится автоматически (`pack.toml` свежий).
+- GH Action соберёт `KrestMC.zip`, `KrestMC.mrpack`, `KrestMC-mods.zip` и опубликует в [Release](https://github.com/karasiq69/krestgg-minecraft-pack/releases).
+- Prism / PolyMC игроки получат обновление при следующем `Launch`.
+- Сервер подтянет новые серверные моды при ручном `docker compose restart` на хосте.
