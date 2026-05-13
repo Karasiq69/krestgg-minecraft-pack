@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "0cf6d62c0dfd0a026e6a4fda8b81c902e359529c4487ec91ad7fba705eccd21f"
+hash = "a216e613b5ada8a83972394c8b52331388f6d3e41187a04c3bced3f1752bea70"
 metafile = true
 
 [[files]]
@@ -32,7 +32,7 @@ metafile = true
 
 [[files]]
 file = "mods/inventory-sorting.pw.toml"
-hash = "0ba2b0bf89e12e6a25b55b9d743cf6c379d341b746be8bc38f6a1ca9abe95d3c"
+hash = "40bf6a414a226d4a73418159fe41ed450e64b758627f15e8a59debd52caee648"
 metafile = true
 
 [[files]]
