@@ -1,0 +1,74 @@
+name: Build modpack artifacts
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - 'pack.toml'
+      - 'index.toml'
+      - 'mods/**'
+      - 'prism-instance/**'
+      - 'build-instance.sh'
+      - 'build-mods-zip.sh'
+      - '.github/workflows/build-pack.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Set up Java (for packwiz-installer-bootstrap)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: packwiz refresh
+        run: packwiz refresh
+
+      - name: Build mrpack
+        run: |
+          mkdir -p dist
+          packwiz mr export -o dist/KrestMC.mrpack
+
+      - name: Build Prism instance zip
+        run: bash build-instance.sh
+
+      - name: Build mods zip
+        run: bash build-mods-zip.sh
+
+      - name: List built artifacts
+        run: ls -la dist/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pack-${{ github.run_number }}
+          name: "Pack build #${{ github.run_number }}"
+          generate_release_notes: true
+          files: |
+            dist/KrestMC.zip
+            dist/KrestMC.mrpack
+            dist/KrestMC-mods.zip
+
+      - name: Trigger landing rebuild (MC-004 placeholder)
+        uses: peter-evans/repository-dispatch@v3
+        continue-on-error: true
+        with:
+          token: ${{ secrets.LANDING_DISPATCH_TOKEN }}
+          repository: karasiq69/krestmc-landing
+          event-type: pack-updated
