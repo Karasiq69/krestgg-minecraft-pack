@@ -1,6 +1,16 @@
 hash-format = "sha256"
 
 [[files]]
+file = "mods/cloth-config.pw.toml"
+hash = "0cf6d62c0dfd0a026e6a4fda8b81c902e359529c4487ec91ad7fba705eccd21f"
+metafile = true
+
+[[files]]
+file = "mods/distanthorizons.pw.toml"
+hash = "564ad908d0f0cf57b1c6ca8eba49fa23b19e00ab35cc0f9c88dabc3cab54e6f9"
+metafile = true
+
+[[files]]
 file = "mods/easywhitelist.pw.toml"
 hash = "73676c3479246a54890fc2f4518470593f97cbc57525839626738a5efce06b4f"
 metafile = true
@@ -18,6 +28,11 @@ metafile = true
 [[files]]
 file = "mods/fastback.pw.toml"
 hash = "463718c1cb11f6a125a1d53dc40a1fbbc9ba0c532fa6b59e1a5bebd6be8da8f6"
+metafile = true
+
+[[files]]
+file = "mods/inventory-sorting.pw.toml"
+hash = "0ba2b0bf89e12e6a25b55b9d743cf6c379d341b746be8bc38f6a1ca9abe95d3c"
 metafile = true
 
 [[files]]
