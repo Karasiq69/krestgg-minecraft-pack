@@ -43,7 +43,7 @@ export async function handleWhitelist(
     return;
   }
 
-  const cmd = sub === 'add' ? `whitelist add ${name}` : `whitelist remove ${name}`;
+  const cmd = sub === 'add' ? `easywhitelist add ${name}` : `easywhitelist remove ${name}`;
   try {
     const raw = await sendCommand(cmd);
     await interaction.reply({ content: `\`${raw}\``, ephemeral: true });
