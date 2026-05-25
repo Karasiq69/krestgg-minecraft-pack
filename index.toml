@@ -1,13 +1,13 @@
 hash-format = "sha256"
 
 [[files]]
-file = "mods/cloth-config.pw.toml"
-hash = "a216e613b5ada8a83972394c8b52331388f6d3e41187a04c3bced3f1752bea70"
+file = "mods/distanthorizons.pw.toml"
+hash = "03fd316b06f4b8ff712069c692cc2544057418ed63ec8b378d0a1e1558fa31bc"
 metafile = true
 
 [[files]]
-file = "mods/distanthorizons.pw.toml"
-hash = "7fc0ba4d6c4160f30443ff08967075cfd7f5c9b492bff8370b73708f2b11c101"
+file = "mods/easyauth.pw.toml"
+hash = "af0cd58664f92563da570bf68bc2ea89d0b39f928f4503f968c73a16a536afe0"
 metafile = true
 
 [[files]]
@@ -17,7 +17,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "54e3cc9a3c2a05cc879ffda7f4c97a89be0b648421d6c8fe92e2d3e5761abf20"
+hash = "d9f5084f3684add4a72eac5500df626a92e5e36eda54d9527ad1da0a16c2060a"
 metafile = true
 
 [[files]]
@@ -27,45 +27,25 @@ metafile = true
 
 [[files]]
 file = "mods/fastback.pw.toml"
-hash = "463718c1cb11f6a125a1d53dc40a1fbbc9ba0c532fa6b59e1a5bebd6be8da8f6"
-metafile = true
-
-[[files]]
-file = "mods/inventory-sorting.pw.toml"
-hash = "40bf6a414a226d4a73418159fe41ed450e64b758627f15e8a59debd52caee648"
-metafile = true
-
-[[files]]
-file = "mods/iris.pw.toml"
-hash = "8d40436970d9adcfe3c0b72c9f0cd1af217948469b091b0f07ca3df187ce2e61"
+hash = "5af15318e5df9f6dbaea6ee97d361b9acdb2c2f736cba315b08e10df7b0157db"
 metafile = true
 
 [[files]]
 file = "mods/ledger.pw.toml"
-hash = "df8622c19caa49353b659ae54d630f7203b60e08bb951404f0bcd73a73ff7ee4"
+hash = "3acf17c3380c84a6db100135ad803864eb7f61ad4c5492427381c2129cbb72ac"
 metafile = true
 
 [[files]]
 file = "mods/lithium.pw.toml"
-hash = "afa18a181b314fa61babe340011dca12ec4dc276bcfc90bd82c9f9d9d471839e"
+hash = "0d50ab3ad7a4559ef29372ccef95d3dd190f72fda093107abcf21c6ad9f8964a"
 metafile = true
 
 [[files]]
 file = "mods/luckperms.pw.toml"
-hash = "5e7d7f0551f95f2f496098b0eb9f3ed4d5942ce981f4eb9e1f80c1a83ef19058"
+hash = "ed322399f2f703b5cc9f6652d85e8eb215a53c7acbeef27964c0d6af7400561a"
 metafile = true
 
 [[files]]
 file = "mods/plasmo-voice.pw.toml"
-hash = "4764c981efef41ce1f104bf7ffaafe1c1bed0b1fba18b5d36c5e174905335d55"
-metafile = true
-
-[[files]]
-file = "mods/simple-login.pw.toml"
-hash = "759061859788733de790bffd01d2e56d879b240d75f823885440e8e717fbb74e"
-metafile = true
-
-[[files]]
-file = "mods/sodium.pw.toml"
-hash = "3ef916454266cdbcbd3f517c53b1e27b360caa5266bf1b44d0d627aeab643516"
+hash = "5012bdd7b42e1a9818958539b0a4c14de418a6a90a2507e154925916af490710"
 metafile = true

@@ -1,5 +1,5 @@
 name = "Distant Horizons"
-filename = "DistantHorizons-3.0.3-b-1.21.8-fabric-neoforge.jar"
+filename = "DistantHorizons-3.0.3-b-1.20.1-fabric-forge.jar"
 side = "client"
 
 [option]
@@ -8,11 +8,11 @@ default = false
 description = "Расширенные дальние чанки. Может крашить игру — по умолчанию выключен."
 
 [download]
-url = "https://cdn.modrinth.com/data/uCdwusMi/versions/G4cfzekJ/DistantHorizons-3.0.3-b-1.21.8-fabric-neoforge.jar"
+url = "https://cdn.modrinth.com/data/uCdwusMi/versions/lcyL2Fq3/DistantHorizons-3.0.3-b-1.20.1-fabric-forge.jar"
 hash-format = "sha512"
-hash = "4ac50046e75f34f33165592816ce980c5fc1e31ee92b8ab124771ac72d5ee68f3e3e7995b5a04d184bd1194019dedcb25a7bd02199027fe60ecf6be04bce1c56"
+hash = "c107cd7caa856395a30ee1bb235339756e096ef8f65fc489d77c3c85ab600381bbe7b0752f7f677dd41d3aabf5b64151cb3c630eda29ad409366c71888087161"
 
 [update]
 [update.modrinth]
 mod-id = "uCdwusMi"
-version = "G4cfzekJ"
+version = "lcyL2Fq3"

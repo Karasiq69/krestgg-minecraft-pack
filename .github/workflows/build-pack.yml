@@ -10,6 +10,7 @@ on:
       - 'prism-instance/**'
       - 'build-instance.sh'
       - 'build-mods-zip.sh'
+      - 'build-overlay-urls.sh'
       - '.github/workflows/build-pack.yml'
   workflow_dispatch:
 
@@ -51,6 +52,9 @@ jobs:
       - name: Build mods zip
         run: bash build-mods-zip.sh
 
+      - name: Build overlay URL list
+        run: bash build-overlay-urls.sh
+
       - name: List built artifacts
         run: ls -la dist/
 
@@ -64,6 +68,7 @@ jobs:
             dist/KrestMC.zip
             dist/KrestMC.mrpack
             dist/KrestMC-mods.zip
+            dist/krestmc-overlay-urls.txt
 
       - name: Trigger landing rebuild (MC-004 placeholder)
         uses: peter-evans/repository-dispatch@v3
