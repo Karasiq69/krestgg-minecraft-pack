@@ -10,6 +10,9 @@
 SERVER_SKIP=(
   "fabric-api"
   "fabric-language-kotlin"
+  # ledger 1.3.18 has a NOT NULL bug on players.player_name when console writes.
+  # Hasturian Era ships ledger-1.2.8 which lacks the constraint; we use that instead.
+  "ledger"
 )
 
 set -euo pipefail
