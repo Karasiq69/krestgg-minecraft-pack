@@ -38,13 +38,16 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Set up Python (for build-mrpack.py, needs 3.11+ for tomllib)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: packwiz refresh
         run: packwiz refresh
 
-      - name: Build mrpack
-        run: |
-          mkdir -p dist
-          packwiz mr export -o dist/KrestMC.mrpack
+      - name: Build KrestMC.mrpack (prebake Hasturian + overlay)
+        run: python3 build-mrpack.py
 
       - name: Build Prism instance zip
         run: bash build-instance.sh
