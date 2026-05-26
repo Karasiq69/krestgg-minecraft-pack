@@ -1,6 +1,11 @@
 hash-format = "sha256"
 
 [[files]]
+file = "mods/brewery.pw.toml"
+hash = "4e692cf176e31aa9136608a05c9c4a7f17ad03b845536adaded68aa40f7f7d81"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "a216e613b5ada8a83972394c8b52331388f6d3e41187a04c3bced3f1752bea70"
 metafile = true
@@ -31,6 +36,11 @@ hash = "463718c1cb11f6a125a1d53dc40a1fbbc9ba0c532fa6b59e1a5bebd6be8da8f6"
 metafile = true
 
 [[files]]
+file = "mods/forge-config-api-port.pw.toml"
+hash = "ea40c2f09338485de8ed94ae09c84182e2544ff166e5d9a33b9be8ea13d3f750"
+metafile = true
+
+[[files]]
 file = "mods/inventory-sorting.pw.toml"
 hash = "40bf6a414a226d4a73418159fe41ed450e64b758627f15e8a59debd52caee648"
 metafile = true
@@ -56,6 +66,11 @@ hash = "5e7d7f0551f95f2f496098b0eb9f3ed4d5942ce981f4eb9e1f80c1a83ef19058"
 metafile = true
 
 [[files]]
+file = "mods/open-parties-and-claims.pw.toml"
+hash = "760ef9baa5f3f4b1477012a94cab6bc6b9af965a547c43d2c99075d02d3295cc"
+metafile = true
+
+[[files]]
 file = "mods/plasmo-voice.pw.toml"
 hash = "4764c981efef41ce1f104bf7ffaafe1c1bed0b1fba18b5d36c5e174905335d55"
 metafile = true
@@ -68,4 +83,9 @@ metafile = true
 [[files]]
 file = "mods/sodium.pw.toml"
 hash = "3ef916454266cdbcbd3f517c53b1e27b360caa5266bf1b44d0d627aeab643516"
+metafile = true
+
+[[files]]
+file = "mods/the-roads-more-travelled.pw.toml"
+hash = "149ef454f237cd530515148b232d1e021b70685354a3f32d5e706176316822c6"
 metafile = true

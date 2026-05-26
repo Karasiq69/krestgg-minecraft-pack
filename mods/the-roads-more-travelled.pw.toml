@@ -1,0 +1,8 @@
+name = "the-roads-more-travelled"
+filename = "trmt-0.5-1.21.4.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/74oZhrEe/versions/EY5vLFHV/trmt-0.5-1.21.4.jar"
+hash-format = "sha256"
+hash = "53a8f466d388a535253fb3d29d764144b9490791b22583b07af961bea937b617"
