@@ -6,11 +6,6 @@ hash = "a216e613b5ada8a83972394c8b52331388f6d3e41187a04c3bced3f1752bea70"
 metafile = true
 
 [[files]]
-file = "mods/distanthorizons.pw.toml"
-hash = "7fc0ba4d6c4160f30443ff08967075cfd7f5c9b492bff8370b73708f2b11c101"
-metafile = true
-
-[[files]]
 file = "mods/emotecraft.pw.toml"
 hash = "628974825cb02ecc18a5775fad9e893d6ec8559ecf71a4ff56b0626fa3718e82"
 metafile = true
@@ -18,11 +13,6 @@ metafile = true
 [[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "54e3cc9a3c2a05cc879ffda7f4c97a89be0b648421d6c8fe92e2d3e5761abf20"
-metafile = true
-
-[[files]]
-file = "mods/inventory-sorting.pw.toml"
-hash = "40bf6a414a226d4a73418159fe41ed450e64b758627f15e8a59debd52caee648"
 metafile = true
 
 [[files]]
