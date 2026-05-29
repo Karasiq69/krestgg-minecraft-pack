@@ -1,18 +1,19 @@
 # KrestGG Minecraft
 
-Клиентский модпак для сервера сообщества Кресты.
+Клиентский модпак для сервера сообщества Кресты. Сервер — **Paper 1.21.8** (выживание Towny + экономика + скиллы крутятся плагинами на сервере, ставить ничего не нужно). Клиент — лёгкий Fabric-набор: голос, эмоции, перформанс.
 
 - **Версия:** Minecraft `1.21.8`, Fabric Loader `0.19.2`
 - **Адрес сервера:** `185.207.214.12:37465`
 
-## Что внутри
+## Что внутри (клиент)
 
-- **Партии и клеймы** — Open Parties and Claims: создавай отряд, забирай чанки под защиту, настраивай PvP/доступ союзникам.
-- **Дороги** — The Roads More Travelled: травленные тропы появляются там, где часто ходят пацаны.
-- **Бухло** — Patbox's Brewery: вари самогон, настойки и прочее, разливай в бочки.
-- Голосовой чат (Plasmo Voice), бэкапы (Fastback), история действий (Ledger), сортировка инвентаря, шейдеры (Iris+Sodium), оптика дальних чанков (Distant Horizons, опционально).
+- **Голосовой чат** — Simple Voice Chat: proximity-голос, кнопка по умолчанию `V` (настраивается). Должен совпадать с серверным плагином — уже совпадает.
+- **Эмоции** — Emotecraft (+ Player Animation Library): анимированные эмоции.
+- **Производительность и графика** — Sodium + Iris (шейдеры), Distant Horizons (дальние LOD-чанки).
+- **QoL** — Inventory Sorting (сортировка инвентаря).
+- Библиотеки: Fabric API, Cloth Config.
 
-> **Map Atlases не входит** — нет сборки под 1.21.8 на момент релиза. Добавим, когда мэйнтейнер обновит мод.
+> Towny (города/клеймы), магазины (QuickShop), скиллы (AuraSkills), бухло (BreweryX) и т.д. — это **серверные плагины**, отдельно их ставить не надо, работают для всех.
 
 ## Как зайти
 
@@ -70,10 +71,10 @@ go install github.com/packwiz/packwiz@latest
 ```bash
 cd krestgg-minecraft-pack
 packwiz mr add <slug> -y
-# При необходимости поправить side в mods/<slug>.pw.toml:
+# Пак КЛИЕНТСКИЙ (сервер = Paper, плагины отдельно). Держим только client/both моды:
 #   client — только клиенту (sodium, iris, distant-horizons)
-#   server — только серверу (lithium, luckperms, fastback и т.д.)
-#   both   — обоим (fabric-api, plasmo-voice, kotlin)
+#   both   — обоим, но на клиент тоже ставится (fabric-api, simple-voice-chat, emotecraft)
+# Серверные моды (side=server) сюда НЕ добавляем — на Paper они не нужны.
 packwiz refresh
 git add . && git commit -m "add <slug>" && git push
 ```
@@ -82,4 +83,5 @@ git add . && git commit -m "add <slug>" && git push
 - GH Pages обновится автоматически (`pack.toml` свежий).
 - GH Action соберёт `KrestMC.zip`, `KrestMC.mrpack`, `KrestMC-mods.zip` и опубликует в [Release](https://github.com/karasiq69/krestgg-minecraft-pack/releases).
 - Prism / PolyMC игроки получат обновление при следующем `Launch`.
-- Сервер подтянет новые серверные моды при ручном `docker compose restart` на хосте.
+
+> Сервер (Paper) этот пак **не** использует — серверные плагины живут отдельно в `~/PycharmProjects/krestmc-server` / `/srv/krestmc`.
