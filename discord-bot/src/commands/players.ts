@@ -2,12 +2,32 @@ import { ChatInputCommandInteraction } from 'discord.js';
 import { sendCommand } from '../rcon.js';
 
 function parsePlayerList(raw: string): { count: number; players: string[] } {
-  // MC RCON `list` typical: "There are 2 of a max of 30 players online: Notch, Herobrine"
-  const match = raw.match(/There are (\d+) of a max of (\d+) players online:?\s*(.*)/);
-  if (!match) return { count: 0, players: [] };
-  const count = parseInt(match[1], 10);
-  const list = match[3]?.trim() ?? '';
-  const players = list ? list.split(',').map((s) => s.trim()).filter(Boolean) : [];
+  // The server runs EssentialsX, which overrides `/list`. Its RCON output carries
+  // Minecraft section-sign (§) colour codes and groups players by permission group
+  // on separate lines, e.g.:
+  //   "§6There are §c13§6 out of maximum §c40§6 players online.\n§6default§r: a, b, c"
+  // The vanilla format ("There are 2 of a max of 30 players online: Notch, Herobrine")
+  // is still handled. Strip colour codes (§-codes and any ANSI escapes) before parsing.
+  const clean = raw
+    .replace(/\[[0-9;]*m/g, '')
+    .replace(/§./g, '');
+
+  // Count line: matches both "of a max of" (vanilla) and "out of maximum" (EssentialsX).
+  const countMatch = clean.match(/There are (\d+)\D+?(\d+) players online/i);
+  const count = countMatch ? parseInt(countMatch[1], 10) : 0;
+
+  // Names follow a colon: inline after "online:" (vanilla) or on per-group lines
+  // like "default: a, b" (EssentialsX). The bare count line has no colon and is
+  // skipped. Minecraft usernames never contain ':', so this split is safe.
+  const players: string[] = [];
+  for (const line of clean.split(/\r?\n/)) {
+    const idx = line.indexOf(':');
+    if (idx === -1) continue;
+    for (const part of line.slice(idx + 1).split(',')) {
+      const name = part.trim();
+      if (name && !players.includes(name)) players.push(name);
+    }
+  }
   return { count, players };
 }
 

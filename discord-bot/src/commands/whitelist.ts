@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction, GuildMember, PermissionFlagsBits, Permissi
 import { config } from '../config.js';
 import { sendCommand } from '../rcon.js';
 import { sendAudit } from '../audit.js';
+import { stripColors } from '../format.js';
 
 const NICK_PATTERN = /^[A-Za-z0-9_]{3,16}$/;
 
@@ -30,7 +31,7 @@ export async function handleWhitelist(
   if (sub === 'list') {
     try {
       const raw = await sendCommand('whitelist list');
-      await interaction.reply({ content: `\`\`\`\n${raw}\n\`\`\``, ephemeral: true });
+      await interaction.reply({ content: `\`\`\`\n${stripColors(raw)}\n\`\`\``, ephemeral: true });
     } catch {
       await interaction.reply({ content: '⚠️ RCON временно недоступен', ephemeral: true });
     }
@@ -46,7 +47,7 @@ export async function handleWhitelist(
   const cmd = sub === 'add' ? `easywhitelist add ${name}` : `easywhitelist remove ${name}`;
   try {
     const raw = await sendCommand(cmd);
-    await interaction.reply({ content: `\`${raw}\``, ephemeral: true });
+    await interaction.reply({ content: `\`${stripColors(raw)}\``, ephemeral: true });
 
     const emoji = sub === 'add' ? '✅' : '❌';
     const verb = sub === 'add' ? 'добавил' : 'удалил';
