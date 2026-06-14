@@ -34,3 +34,8 @@ metafile = true
 file = "mods/sodium.pw.toml"
 hash = "3ef916454266cdbcbd3f517c53b1e27b360caa5266bf1b44d0d627aeab643516"
 metafile = true
+
+[[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "37fbfee4f81373b22dfb5331ed199502121d4a2a68d10b6af3fbff2af9ceed6b"
+metafile = true
