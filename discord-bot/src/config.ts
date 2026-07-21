@@ -21,7 +21,7 @@ export const config = {
 };
 
 export const HOST = 'krestmc';
-export const PUBLIC_ADDRESS = 'mc.krestgg.ru';
+export const PUBLIC_ADDRESS = 'mc.krest.gg';
 export const RCON_PORT = 25575;
 export const SLP_PORT = 25565;
 export const PRESENCE_INTERVAL_MS = 30_000;
