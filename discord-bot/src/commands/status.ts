@@ -6,9 +6,13 @@ const PUBLIC_ADDRESS = '185.207.214.12:37465';
 export async function handleStatus(
   interaction: ChatInputCommandInteraction,
 ): Promise<void> {
+  // SLP ping has its own 5s timeout (×2 with the legacy fallback), so it can
+  // outrun Discord's 3s ack window → defer first.
+  await interaction.deferReply();
+
   const result = await pingServer();
   if (!result) {
-    await interaction.reply('🔴 Сервер недоступен');
+    await interaction.editReply('🔴 Сервер недоступен');
     return;
   }
 
@@ -23,5 +27,5 @@ export async function handleStatus(
       { name: 'Адрес', value: `\`${PUBLIC_ADDRESS}\``, inline: false },
     );
 
-  await interaction.reply({ embeds: [embed] });
+  await interaction.editReply({ embeds: [embed] });
 }
