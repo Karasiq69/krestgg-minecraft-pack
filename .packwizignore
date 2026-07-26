@@ -8,8 +8,10 @@ docs/
 README.md
 LICENSE
 prism-instance/
+prism-instance-sp/
 dist/
 build-instance.sh
+build-instance-sp.sh
 build-mods-zip.sh
 *.zip
 *.mrpack
