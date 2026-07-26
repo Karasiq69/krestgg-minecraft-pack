@@ -10,7 +10,7 @@ import { sendCommand } from '../rcon.js';
 import { sendAudit } from '../audit.js';
 import { stripColors } from '../format.js';
 
-const NICK_PATTERN = /^[A-Za-z0-9_]{3,16}$/;
+import { NICK_PATTERN } from '../invite.js';
 
 function isAuthorized(member: unknown): boolean {
   if (!member || typeof member !== 'object') return false;
@@ -56,7 +56,7 @@ export async function handleWhitelist(
     return;
   }
 
-  const cmd = sub === 'add' ? `easywhitelist add ${name}` : `easywhitelist remove ${name}`;
+  const cmd = sub === 'add' ? `${config.whitelistCmd} add ${name}` : `${config.whitelistCmd} remove ${name}`;
   try {
     const raw = await sendCommand(cmd);
     await interaction.editReply({ content: `\`${stripColors(raw)}\`` });

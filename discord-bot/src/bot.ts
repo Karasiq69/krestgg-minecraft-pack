@@ -10,8 +10,14 @@ import { deployCommands } from './commands/deploy.js';
 import { handleStatus } from './commands/status.js';
 import { handlePlayers } from './commands/players.js';
 import { handleWhitelist } from './commands/whitelist.js';
+import { handleInviteButton } from './invite.js';
 
 let client: Client | null = null;
+
+/** The live Discord client, for modules outside the bot loop (HTTP /invite). */
+export function getClient(): Client | null {
+  return client;
+}
 let presenceTimer: NodeJS.Timeout | null = null;
 
 async function updatePresence(): Promise<void> {
@@ -38,6 +44,15 @@ export async function startBot(): Promise<void> {
   });
 
   client.on(Events.InteractionCreate, async (interaction) => {
+    if (interaction.isButton() && interaction.customId.startsWith('invite:')) {
+      try {
+        await handleInviteButton(interaction);
+      } catch (err) {
+        console.error('[bot] invite button error:', err);
+      }
+      return;
+    }
+
     if (!interaction.isChatInputCommand()) return;
     if (interaction.commandName !== 'mc') return;
 

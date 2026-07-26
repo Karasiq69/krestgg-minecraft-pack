@@ -14,10 +14,18 @@ export const config = {
     guildId: required('DISCORD_GUILD_ID'),
     modRoleId: required('DISCORD_MOD_ROLE_ID'),
     auditChannelId: required('DISCORD_AUDIT_CHANNEL_ID'),
+    // Канал для заявок с лендинга; по умолчанию — тот же аудит-канал.
+    inviteChannelId: process.env.DISCORD_INVITE_CHANNEL_ID || required('DISCORD_AUDIT_CHANNEL_ID'),
   },
   rcon: {
     password: required('RCON_PASSWORD'),
   },
+  // Paper (сейчас) — алиас easywhitelist; Fabric (сезон 2) — ванильный whitelist.
+  // Переключение: WHITELIST_CMD=whitelist в .env при миграции.
+  whitelistCmd: process.env.WHITELIST_CMD || 'easywhitelist',
+  // Опциональный shared secret между лендингом и ботом (:8080 торчит наружу).
+  // Если задан — POST /invite без заголовка x-invite-token отбивается.
+  inviteToken: process.env.INVITE_TOKEN || null,
 };
 
 export const HOST = 'krestmc';
