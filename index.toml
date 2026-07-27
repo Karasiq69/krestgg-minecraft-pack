@@ -71,6 +71,11 @@ hash = "cbe441e7570d0d8c8b5078223e83e2494b988fc29fc49e3ec401deba95229b1d"
 metafile = true
 
 [[files]]
+file = "mods/rpgdifficulty.pw.toml"
+hash = "1d13ba6f5ed84f7aec2c7ca34b1ffc1e57b4d3a5aca9b8d0b4486a421923ef6d"
+metafile = true
+
+[[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "b07c9051dc5854862f6f16691ccd0b781d41684aaff05341fbd449c572b5aefa"
 metafile = true
