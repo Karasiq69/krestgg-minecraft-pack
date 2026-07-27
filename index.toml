@@ -61,6 +61,11 @@ hash = "74df0a7f9ccdddedc969c17b3abb8432eab8c3abcdf885a6acfe422b62a4e07d"
 metafile = true
 
 [[files]]
+file = "mods/mobchampions.pw.toml"
+hash = "b21f943019ee4b4d4cd454fe6351c1694859a8f9e1288f46c4a4e286d76c5bc8"
+metafile = true
+
+[[files]]
 file = "mods/neat.pw.toml"
 hash = "cbe441e7570d0d8c8b5078223e83e2494b988fc29fc49e3ec401deba95229b1d"
 metafile = true
@@ -88,4 +93,9 @@ metafile = true
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
 hash = "12004908d0ca6936a99ab61c1130f6c24802adfc056deb16039c779ece59f3bb"
+metafile = true
+
+[[files]]
+file = "mods/yigd.pw.toml"
+hash = "5be05538347e59b65357ecb31c28c90edd3769309fa864222d7116ccd7e8a446"
 metafile = true
