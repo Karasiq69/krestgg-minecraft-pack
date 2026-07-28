@@ -41,6 +41,11 @@ hash = "4e94f635510d86d01a94bbc78eb471632ebe203b58b88490a73a785d733e42ed"
 metafile = true
 
 [[files]]
+file = "mods/forge-config-api-port.pw.toml"
+hash = "238b3ceb4214a682480ce00eefae5d34efa299ff6ff667e4b2f2ed503c6e76ee"
+metafile = true
+
+[[files]]
 file = "mods/glitchcore.pw.toml"
 hash = "e7a737720192a1ec35fbc8d8061f7373fd0a900806882d43e30511967e9a06d0"
 metafile = true
@@ -71,6 +76,11 @@ hash = "cbe441e7570d0d8c8b5078223e83e2494b988fc29fc49e3ec401deba95229b1d"
 metafile = true
 
 [[files]]
+file = "mods/open-parties-and-claims.pw.toml"
+hash = "50f72e4f9437d0719d952fdc72534508fc2fac7c74f4e785d21b84512fb6f573"
+metafile = true
+
+[[files]]
 file = "mods/rpgdifficulty.pw.toml"
 hash = "1d13ba6f5ed84f7aec2c7ca34b1ffc1e57b4d3a5aca9b8d0b4486a421923ef6d"
 metafile = true
@@ -98,9 +108,4 @@ metafile = true
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
 hash = "12004908d0ca6936a99ab61c1130f6c24802adfc056deb16039c779ece59f3bb"
-metafile = true
-
-[[files]]
-file = "mods/yigd.pw.toml"
-hash = "5be05538347e59b65357ecb31c28c90edd3769309fa864222d7116ccd7e8a446"
 metafile = true
