@@ -9,6 +9,11 @@ import { config } from '../config.js';
 import { sendCommand } from '../rcon.js';
 import { sendAudit } from '../audit.js';
 import { stripColors } from '../format.js';
+import {
+  WhitelistFileError,
+  addToWhitelist,
+  removeFromWhitelist,
+} from '../whitelist-store.js';
 
 import { NICK_PATTERN } from '../invite.js';
 
@@ -36,8 +41,8 @@ export async function handleWhitelist(
 
   // RCON round-trip может уйти за 3-секундное окно ack у Discord, поэтому подтверждаем
   // interaction сразу — поздний ответ идёт через editReply, а не падает с 10062 Unknown interaction.
-  // NB: `easywhitelist add` в Mojang НЕ ходит — сервер offline-mode, пишет offline-UUID (v3) локально
-  // и мгновенно. Совпадение whitelist↔вход держит LimboAuth `force-offline-uuid: true` на прокси (MC-037).
+  // NB: add/remove пишут whitelist.json напрямую с offline-UUID; ванильный `whitelist add`
+  // не используется, он резолвит ник через Mojang и пишет premium-UUID (MC-063).
   await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
   if (sub === 'list') {
@@ -56,19 +61,47 @@ export async function handleWhitelist(
     return;
   }
 
-  const cmd = sub === 'add' ? `${config.whitelistCmd} add ${name}` : `${config.whitelistCmd} remove ${name}`;
   try {
-    const raw = await sendCommand(cmd);
-    await interaction.editReply({ content: `\`${stripColors(raw)}\`` });
+    const stale = (reloaded: boolean) =>
+      reloaded ? '' : '\n⚠️ RCON недоступен — применится при следующем reload сервера';
 
-    const emoji = sub === 'add' ? '✅' : '❌';
-    const verb = sub === 'add' ? 'добавил' : 'удалил';
-    const prep = sub === 'add' ? 'в whitelist' : 'из whitelist';
-    await sendAudit(
-      interaction.client,
-      `${emoji} <@${interaction.user.id}> ${verb} \`${name}\` ${prep}`,
-    );
-  } catch {
+    if (sub === 'add') {
+      const { outcome, reloaded } = await addToWhitelist(name);
+      const note =
+        outcome === 'exists'
+          ? 'уже в whitelist'
+          : outcome === 'repaired'
+            ? 'запись перезаписана с корректным offline-UUID'
+            : 'добавлен';
+      await interaction.editReply({ content: `✅ \`${name}\` — ${note}${stale(reloaded)}` });
+      if (outcome !== 'exists') {
+        await sendAudit(
+          interaction.client,
+          `✅ <@${interaction.user.id}> добавил \`${name}\` в whitelist`,
+        );
+      }
+    } else {
+      const { outcome, reloaded } = await removeFromWhitelist(name);
+      if (outcome === 'missing') {
+        await interaction.editReply({ content: `\`${name}\` не найден в whitelist` });
+        return;
+      }
+      await interaction.editReply({
+        content: `❌ \`${name}\` удалён из whitelist${stale(reloaded)}`,
+      });
+      await sendAudit(
+        interaction.client,
+        `❌ <@${interaction.user.id}> удалил \`${name}\` из whitelist`,
+      );
+    }
+  } catch (err) {
+    if (err instanceof WhitelistFileError) {
+      console.error('[whitelist]', err.message, err.cause ?? '');
+      await interaction.editReply({
+        content: `⚠️ Не получилось записать whitelist: ${err.message}`,
+      });
+      return;
+    }
     await interaction.editReply({ content: '⚠️ RCON временно недоступен' });
   }
 }

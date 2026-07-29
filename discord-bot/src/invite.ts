@@ -15,6 +15,7 @@ import { config } from './config.js';
 import { sendCommand } from './rcon.js';
 import { sendAudit } from './audit.js';
 import { stripColors } from './format.js';
+import { WhitelistFileError, addToWhitelist, offlineUuid } from './whitelist-store.js';
 
 export const NICK_PATTERN = /^[A-Za-z0-9_]{3,16}$/;
 
@@ -131,13 +132,22 @@ export async function handleInviteButton(interaction: ButtonInteraction): Promis
   let footer: string;
   if (action === 'approve') {
     try {
-      const raw = await sendCommand(`${config.whitelistCmd} add ${nick}`);
-      footer = `✅ Одобрено · ${interaction.user.username} · ${stripColors(raw).trim() || 'ok'}`;
+      const { outcome, reloaded } = await addToWhitelist(nick);
+      const note = outcome === 'exists' ? 'уже был в whitelist' : offlineUuid(nick);
+      footer = `✅ Одобрено · ${interaction.user.username} · ${note}${reloaded ? '' : ' · reload не прошёл'}`;
       await sendAudit(
         interaction.client,
-        `✅ <@${interaction.user.id}> одобрил заявку \`${nick}\` (whitelist add)`,
+        `✅ <@${interaction.user.id}> одобрил заявку \`${nick}\` (offline-UUID ${offlineUuid(nick)})`,
       );
-    } catch {
+    } catch (err) {
+      if (err instanceof WhitelistFileError) {
+        console.error('[invite]', err.message, err.cause ?? '');
+        await interaction.followUp({
+          content: `⚠️ Не получилось записать whitelist: ${err.message}. Заявка осталась открытой.`,
+          flags: MessageFlags.Ephemeral,
+        });
+        return;
+      }
       await interaction.followUp({
         content: '⚠️ RCON недоступен — заявка осталась открытой, попробуй позже',
         flags: MessageFlags.Ephemeral,

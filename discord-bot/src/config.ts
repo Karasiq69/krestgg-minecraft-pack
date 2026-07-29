@@ -20,9 +20,10 @@ export const config = {
   rcon: {
     password: required('RCON_PASSWORD'),
   },
-  // Paper (сейчас) — алиас easywhitelist; Fabric (сезон 2) — ванильный whitelist.
-  // Переключение: WHITELIST_CMD=whitelist в .env при миграции.
-  whitelistCmd: process.env.WHITELIST_CMD || 'easywhitelist',
+  // Вайтлист пишется файлом, а не командой `whitelist add` — она резолвит ник через
+  // Mojang и пишет premium-UUID, с которым оффлайновый игрок не зайдёт (MC-063).
+  // Каталог данных сервера монтируется в контейнер бота: -v /srv/krestmc-fabric/data:/mcdata
+  whitelistFile: process.env.WHITELIST_FILE || '/mcdata/whitelist.json',
   // Опциональный shared secret между лендингом и ботом (:8080 торчит наружу).
   // Если задан — POST /invite без заголовка x-invite-token отбивается.
   inviteToken: process.env.INVITE_TOKEN || null,
