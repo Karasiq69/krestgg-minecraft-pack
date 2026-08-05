@@ -6,11 +6,6 @@ hash = "7fa9592b9948b8809018a4e7c3ca7da4d19fc5ef8c03021414cb22ae0253f083"
 metafile = true
 
 [[files]]
-file = "mods/distanthorizons.pw.toml"
-hash = "ce280969fa45ec982f36067934c36f76098dcf8b0c71bab46691e6b5b8e9664e"
-metafile = true
-
-[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "848db8de89cc26314f20f6cf86e6c2cfc6e2cdd1a30a7d494575a4e24a8ef9f6"
 metafile = true
