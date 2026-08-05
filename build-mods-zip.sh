@@ -29,6 +29,18 @@ if [[ ! -d "mods" ]] || [[ -z "$(ls -A mods 2>/dev/null)" ]]; then
   exit 1
 fi
 
+# packwiz-installer в CLI-режиме тянет опциональные моды ВСЕГДА, игнорируя
+# `default = false` ("option choosing is not implemented in the CLI"), поэтому
+# выкидываем их сами: ручная установка должна ставить только базовый набор.
+for meta in "$ROOT"/mods/*.pw.toml; do
+  grep -q '^optional = true' "$meta" || continue
+  fn="$(sed -n 's/^filename = "\(.*\)"/\1/p' "$meta")"
+  if [[ -n "$fn" && -f "mods/$fn" ]]; then
+    rm -f "mods/$fn"
+    echo "Опциональный мод исключён из zip: $fn"
+  fi
+done
+
 cd mods
 zip -r "$DIST/KrestMC-mods.zip" . -x '*.DS_Store'
 
