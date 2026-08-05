@@ -1,111 +1,46 @@
 hash-format = "sha256"
 
 [[files]]
-file = "mods/appleskin.pw.toml"
-hash = "a59a33a25933106c7faee20528d14bd305e8efcdf069b2b91b8bee7f3b775a18"
-metafile = true
-
-[[files]]
-file = "mods/biomes-o-plenty.pw.toml"
-hash = "1e4faa76a8e5471099a6e33406679d00c0276c571890b6cfa4b8f5605fa6ab74"
-metafile = true
-
-[[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "446c173c87b7908daee86b0dee89c6b628c77beb7a0bc091ff5252b7c0062080"
-metafile = true
-
-[[files]]
-file = "mods/coroutil.pw.toml"
-hash = "363b6a77d7f7802a58aecd51e932745b0ab663a5810a681b654e2f3584ac11b1"
+hash = "7fa9592b9948b8809018a4e7c3ca7da4d19fc5ef8c03021414cb22ae0253f083"
 metafile = true
 
 [[files]]
 file = "mods/distanthorizons.pw.toml"
-hash = "27cc480e402cb6b948ee0ec12ede780178c061beffb68aa3aaa896ec84da6d75"
-metafile = true
-
-[[files]]
-file = "mods/emotecraft.pw.toml"
-hash = "135837201d4c30811971e630e957867397b995e6803ff75754d510bf1b4fe8fc"
+hash = "ce280969fa45ec982f36067934c36f76098dcf8b0c71bab46691e6b5b8e9664e"
 metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "509726ae05260d3145f213d0ee630b15f43e7ddbebaeba4c30798f6c70e42458"
-metafile = true
-
-[[files]]
-file = "mods/farmers-delight-refabricated.pw.toml"
-hash = "4e94f635510d86d01a94bbc78eb471632ebe203b58b88490a73a785d733e42ed"
-metafile = true
-
-[[files]]
-file = "mods/forge-config-api-port.pw.toml"
-hash = "238b3ceb4214a682480ce00eefae5d34efa299ff6ff667e4b2f2ed503c6e76ee"
-metafile = true
-
-[[files]]
-file = "mods/glitchcore.pw.toml"
-hash = "e7a737720192a1ec35fbc8d8061f7373fd0a900806882d43e30511967e9a06d0"
+hash = "848db8de89cc26314f20f6cf86e6c2cfc6e2cdd1a30a7d494575a4e24a8ef9f6"
 metafile = true
 
 [[files]]
 file = "mods/inventory-sorting.pw.toml"
-hash = "7cae98a677565da83a0f0dd38a3e6d573cc4388912c20d8ff43c48ec6fa59bc5"
+hash = "6d92f31c29031911cf95e7a3536a02fd4f0f3ae47d5c271aad908c6e796bcfb2"
 metafile = true
 
 [[files]]
 file = "mods/iris.pw.toml"
-hash = "5284f6d141a990f4ea021c12b851e07102f5cb22743cf7b33be6ad2eb4c8d3f5"
-metafile = true
-
-[[files]]
-file = "mods/lootr.pw.toml"
-hash = "74df0a7f9ccdddedc969c17b3abb8432eab8c3abcdf885a6acfe422b62a4e07d"
-metafile = true
-
-[[files]]
-file = "mods/mobchampions.pw.toml"
-hash = "b21f943019ee4b4d4cd454fe6351c1694859a8f9e1288f46c4a4e286d76c5bc8"
-metafile = true
-
-[[files]]
-file = "mods/neat.pw.toml"
-hash = "cbe441e7570d0d8c8b5078223e83e2494b988fc29fc49e3ec401deba95229b1d"
-metafile = true
-
-[[files]]
-file = "mods/open-parties-and-claims.pw.toml"
-hash = "50f72e4f9437d0719d952fdc72534508fc2fac7c74f4e785d21b84512fb6f573"
-metafile = true
-
-[[files]]
-file = "mods/rpgdifficulty.pw.toml"
-hash = "1d13ba6f5ed84f7aec2c7ca34b1ffc1e57b4d3a5aca9b8d0b4486a421923ef6d"
+hash = "7262c5dea44f3ef66051c5300f498d03ad64f97cc5c920dd04ec8f0ba607bb92"
 metafile = true
 
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
-hash = "b07c9051dc5854862f6f16691ccd0b781d41684aaff05341fbd449c572b5aefa"
+hash = "be7369da963f5326a771bbfa360365ac6ed939b01c2c268f4dd4a922718cd4a3"
 metafile = true
 
 [[files]]
 file = "mods/sodium.pw.toml"
-hash = "be0c8881821da897824770b2a71f0f3765a233eda69b295fa5b92ffe8a25014c"
-metafile = true
-
-[[files]]
-file = "mods/terrablender.pw.toml"
-hash = "e35593590fe988653baebae4638f6c93b5d822351274955cc1288b34fe5429fe"
-metafile = true
-
-[[files]]
-file = "mods/what-are-they-up-to.pw.toml"
-hash = "ec15f6beff0499d5784e5ca8863f9e2772e8a5f3501d07f471b7b8bdf6655277"
+hash = "4651334ca774c5ab2429135327e8fee5f9264f46828397691c3b9af94da9af87"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "12004908d0ca6936a99ab61c1130f6c24802adfc056deb16039c779ece59f3bb"
+hash = "d547f22c378e1b2d3bf84ce4975c9d3b9f0626c8eafc9ea05b7167f18ebee3d2"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "817c6920319ead7093fce90e1e3fd6f9a4241fa31554f260158306614e344bab"
 metafile = true

@@ -1,19 +1,25 @@
 # KrestGG Minecraft
 
-Клиентский модпак для сервера сообщества Кресты. Сервер — **Fabric 1.21.1** (выживание Towny + экономика + скиллы крутятся плагинами на сервере, ставить ничего не нужно). Клиент — лёгкий Fabric-набор: голос, эмоции, перформанс.
+Клиентский модпак для сервера сообщества Кресты. Сервер — **Fabric, Minecraft 26.2**, почти
+ванильное выживание: никаких городов, экономики и скиллов, только удобства.
 
-- **Версия:** Minecraft `1.21.1`, Fabric Loader `0.19.3`
-- **Адрес сервера:** `185.207.214.12:37465`
+- **Версия:** Minecraft `26.2`, Fabric Loader `0.19.3`, нужна **Java 25**
+- **Адрес сервера:** `playmc.krest.gg`
 
 ## Что внутри (клиент)
 
-- **Голосовой чат** — Simple Voice Chat: proximity-голос, кнопка по умолчанию `V` (настраивается). Должен совпадать с серверным плагином — уже совпадает.
-- **Эмоции** — Emotecraft (+ Player Animation Library): анимированные эмоции.
+- **Голосовой чат** — Simple Voice Chat: голос по расстоянию, кнопка по умолчанию `V`.
+- **Карта** — Xaero's Minimap (миникарта, вейпоинты) + Xaero's World Map (большая карта).
+- **Сортировка** — Inventory Sorting: клик по кнопке сортирует сундук или инвентарь.
+- **Дальняя прорисовка** — Distant Horizons: видно горизонт далеко за чанк-дистанцией.
 - **Производительность и графика** — Sodium + Iris (шейдеры).
-- **Миникарта** — Xaero's Minimap: миникарта в углу, вейпоинты, мини-карта мира.
 - Библиотеки: Fabric API, Cloth Config.
 
-> Towny (города/клеймы), магазины (QuickShop), скиллы (AuraSkills), бухло (BreweryX) и т.д. — это **серверные плагины**, отдельно их ставить не надо, работают для всех.
+Рубка дерева целиком (FallingTree) работает **на сервере** — ставить ничего не надо, достаточно
+сломать нижний блок ствола.
+
+> Sodium под 26.2 пока в alpha. Если ловите графические артефакты — уберите Sodium и Iris из
+> `mods/`, остальное работает без них.
 
 ## Как зайти
 
@@ -23,11 +29,11 @@
 
 Работает с offline-аккаунтами (пиратки). Моды обновляются автоматически при каждом запуске.
 
-1. Скачать [Prism Launcher](https://prismlauncher.org/download/) (или PolyMC / MultiMC — workflow идентичен).
+1. Скачать [Prism Launcher](https://prismlauncher.org/download/) (или PolyMC / MultiMC).
 2. `Add Account` → `Offline` → ник.
 3. Скачать **`KrestMC.zip`** из [последнего релиза](https://github.com/karasiq69/krestgg-minecraft-pack/releases/latest).
 4. `Add Instance` → `Import` → выбрать `KrestMC.zip`.
-5. `Launch` — моды скачаются автоматически и будут сами обновляться при выходе новых версий.
+5. `Launch` — моды скачаются сами и будут обновляться при выходе новых версий.
 
 ### Modrinth App / ATLauncher / GDLauncher
 
@@ -38,7 +44,7 @@
 ### TLauncher / Legacy Launcher / любой простой лаунчер
 
 1. [Скачать TLauncher](https://llaun.ch/ru) (или Legacy Launcher).
-2. В лаунчере выбрать версию `1.21.1` + установить `Fabric 0.19.3`. Запустить один раз и закрыть (создаст профиль).
+2. В лаунчере выбрать версию `26.2` + установить `Fabric 0.19.3`. Запустить один раз и закрыть.
 3. Скачать **`KrestMC-mods.zip`** из [последнего релиза](https://github.com/karasiq69/krestgg-minecraft-pack/releases/latest).
 4. Распаковать **содержимое** zip в папку с модами:
    - **Windows:** `%APPDATA%\.minecraft\mods\`
@@ -50,13 +56,18 @@
 
 ## Подключение и регистрация
 
-`Multiplayer` → `Add Server` → `185.207.214.12:37465`.
+`Multiplayer` → `Add Server` → `playmc.krest.gg`.
 
 Первый вход:
 ```
 /register твой_пароль твой_пароль
 ```
 В следующие разы: `/login твой_пароль`.
+
+До логина вы попадаете в тёмный «предбанник» — это нормально, мир откроется сразу после команды.
+Ник чувствителен к регистру: `Vasya` и `vasya` — разные аккаунты.
+
+Зайти можно только с ником из вайтлиста — заявка через Discord-бота.
 
 ---
 
@@ -69,19 +80,13 @@ go install github.com/packwiz/packwiz@latest
 
 Добавить мод:
 ```bash
-cd krestgg-minecraft-pack
-packwiz mr add <slug> -y
-# Пак КЛИЕНТСКИЙ (сервер = Paper, плагины отдельно). Держим только client/both моды:
-#   client — только клиенту (sodium, iris, distant-horizons)
-#   both   — обоим, но на клиент тоже ставится (fabric-api, simple-voice-chat, emotecraft)
-# Серверные моды (side=server) сюда НЕ добавляем — на Paper они не нужны.
-packwiz refresh
-git add . && git commit -m "add <slug>" && git push
+packwiz mr add <slug> -y && packwiz refresh
 ```
+
+Пак **клиентский**. Держим только `client`/`both` моды; серверные моды живут в
+`MODRINTH_PROJECTS` серверного compose и сюда не добавляются.
 
 После push:
 - GH Pages обновится автоматически (`pack.toml` свежий).
 - GH Action соберёт `KrestMC.zip`, `KrestMC.mrpack`, `KrestMC-mods.zip` и опубликует в [Release](https://github.com/karasiq69/krestgg-minecraft-pack/releases).
 - Prism / PolyMC игроки получат обновление при следующем `Launch`.
-
-> Сервер (Paper) этот пак **не** использует — серверные плагины живут отдельно в `~/PycharmProjects/krestmc-server` / `/srv/krestmc`.
