@@ -1,6 +1,11 @@
 name = "Distant Horizons"
 filename = "DistantHorizons-3.2.0-b-26.2-fabric-neoforge.jar"
-side = "both"
+side = "client"
+
+[option]
+optional = true
+default = false
+description = "Дальняя прорисовка местности. Красиво, но тяжело: жрёт FPS и ~30 МБ на скачивание. На слабых машинах и ноутбуках лучше не включать."
 
 [download]
 url = "https://cdn.modrinth.com/data/uCdwusMi/versions/gBf0SaV1/DistantHorizons-3.2.0-b-26.2-fabric-neoforge.jar"
