@@ -6,7 +6,10 @@ DIST="$ROOT/dist"
 BUILD="$(mktemp -d -t krestmc-mods-XXXX)"
 trap "rm -rf $BUILD" EXIT
 
-PACK_URL="${PACK_URL:-https://karasiq69.github.io/krestgg-minecraft-pack/pack.toml}"
+# Берём пак из ЛОКАЛЬНОГО чекаута, а не с GH Pages: Pages деплоится отдельным
+# workflow параллельно с этим, и сборка успевала прочитать прошлую версию —
+# KrestMC-mods.zip отставал на один релиз. Переопределить можно через PACK_URL.
+PACK_URL="${PACK_URL:-$ROOT/pack.toml}"
 BOOTSTRAP="$ROOT/prism-instance/.minecraft/packwiz-installer-bootstrap.jar"
 JAVA_BIN="${JAVA:-java}"
 
