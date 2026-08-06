@@ -2,45 +2,40 @@ hash-format = "sha256"
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "7fa9592b9948b8809018a4e7c3ca7da4d19fc5ef8c03021414cb22ae0253f083"
-metafile = true
-
-[[files]]
-file = "mods/distanthorizons.pw.toml"
-hash = "d809931ec27b8b04293f494928378a9a89b1fec591ca3cd0add92bd29990b81d"
+hash = "1b8f4603e81c48badce4a9321dea87bdeb9d3b5a2f0be566139d087afad73a47"
 metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "848db8de89cc26314f20f6cf86e6c2cfc6e2cdd1a30a7d494575a4e24a8ef9f6"
-metafile = true
-
-[[files]]
-file = "mods/inventory-sorting.pw.toml"
-hash = "6d92f31c29031911cf95e7a3536a02fd4f0f3ae47d5c271aad908c6e796bcfb2"
+hash = "fed9bdaac0173f3cab2692f538441afda1e2cd46c6f6363790b424c009e34e03"
 metafile = true
 
 [[files]]
 file = "mods/iris.pw.toml"
-hash = "8b3b2c218c0babdc3f33a6ac98a91d7ddbea701d1183b15c925dedb945b4118f"
+hash = "19e74f770611dabc1bd0713f3a7622abd65b4aaca6b37282135e8fb462630f2d"
 metafile = true
 
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
-hash = "be7369da963f5326a771bbfa360365ac6ed939b01c2c268f4dd4a922718cd4a3"
+hash = "f675fb68db6493e26d25e860443249d2f6d681751c53f23cd29d4a4a1bbb28b5"
 metafile = true
 
 [[files]]
 file = "mods/sodium.pw.toml"
-hash = "a899b14d4bbab643586ac2734da162e9cae579d461f81776804c598a03297ebe"
+hash = "c75f5e9a285cf6195065ba85e73081990f990de6efc7e2262a6eafe12d3dc277"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "d547f22c378e1b2d3bf84ce4975c9d3b9f0626c8eafc9ea05b7167f18ebee3d2"
+hash = "b6ac5f3dfeecbc9d9ef9fb3298662c1d0c6dbb69300c08e56a6328db5ae6206a"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "817c6920319ead7093fce90e1e3fd6f9a4241fa31554f260158306614e344bab"
+hash = "34598c78820198781a08c2ce1b5b291e1f1b44dd56a7a4b2557ab2cef93f0896"
+metafile = true
+
+[[files]]
+file = "shaderpacks/bsl-shaders.pw.toml"
+hash = "f91c2ec79366b4607d93928a07c223cbaa4a2e18fe0c110e68a3fc064e69b65a"
 metafile = true
