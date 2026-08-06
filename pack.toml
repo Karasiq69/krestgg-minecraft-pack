@@ -1,12 +1,12 @@
 name = "KrestMC"
 author = "krestgg"
-version = "3.0.1"
+version = "3.0.2"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "a651ba1a43c80491fa31eaea37a8f1991a2c56fe39f875fea6ed16cfe765ecde"
+hash = "5b4fba382bccf0618707d093fc088cea65c72fc864850981a5c6d867e99620e7"
 
 [versions]
 fabric = "0.19.3"

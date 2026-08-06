@@ -2,6 +2,11 @@ name = "Iris Shaders"
 filename = "iris-fabric-1.11.2+mc26.2.jar"
 side = "client"
 
+[option]
+optional = true
+default = false
+description = "Шейдеры (BSL и т.п.). ВНИМАНИЕ: на Minecraft 26.2 с Iris есть баг — у предметов в инвентаре пропадают иконки (Iris #3212). Включайте, только если готовы терпеть и чинить через F3+T."
+
 [download]
 url = "https://cdn.modrinth.com/data/YL57xq9U/versions/oaD6KQls/iris-fabric-1.11.2%2Bmc26.2.jar"
 hash-format = "sha512"
