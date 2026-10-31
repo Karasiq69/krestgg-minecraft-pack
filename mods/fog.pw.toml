@@ -1,0 +1,13 @@
+name = "Fog"
+filename = "fog-1.12.1+26.2-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/WuGVWUF2/versions/5iZwebqD/fog-1.12.1%2B26.2-fabric.jar"
+hash-format = "sha512"
+hash = "a8b8747a9a818cb3846481a927780d8b381b34f2d3bb2d38ab71cd594fe1656477d7a51a22908be31e9a3d111f3e33510e92396293e9fdcda42cadcfa7ea3109"
+
+[update]
+[update.modrinth]
+mod-id = "WuGVWUF2"
+version = "5iZwebqD"
