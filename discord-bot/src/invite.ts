@@ -26,11 +26,9 @@ export type SubmitResult =
   | { status: 'whitelisted' }
   | { status: 'unavailable' };
 
-// In-memory dedup: every nick that ever reached the admin channel this process
-// lifetime (case-insensitive — избегаем второй заявки "karasiq"/"Karasiq", хотя
-// offline-UUID регистрозависим, вайтлистится ровно то написание, что в заявке).
-// Свойство «переживает редеплой» здесь не нужно: после рестарта бота дубль
-// просто снова попадёт к админам, а не в вайтлист.
+// Offline-UUID регистрозависим: "vasya" и "Vasya" — разные аккаунты, поэтому и
+// дедуп, и проверка вайтлиста сравнивают точное написание. Повторная заявка с
+// исправленным регистром должна дойти до админов, иначе игрок не зайдёт.
 const seen = new Map<string, { nick: string; decidedBy?: string }>();
 
 /** Check the live whitelist over RCON; on RCON failure assume not whitelisted. */
@@ -42,7 +40,7 @@ async function isWhitelisted(nick: string): Promise<boolean> {
     return raw
       .slice(idx + 1)
       .split(',')
-      .some((p) => p.trim().toLowerCase() === nick.toLowerCase());
+      .some((p) => p.trim() === nick);
   } catch {
     return false;
   }
@@ -83,7 +81,7 @@ export async function submitInvite(
   client: Client,
   req: InviteRequest,
 ): Promise<SubmitResult> {
-  const key = req.nick.toLowerCase();
+  const key = req.nick;
   if (seen.has(key)) return { status: 'duplicate' };
   if (await isWhitelisted(req.nick)) return { status: 'whitelisted' };
 
@@ -159,7 +157,7 @@ export async function handleInviteButton(interaction: ButtonInteraction): Promis
     await sendAudit(interaction.client, `❌ <@${interaction.user.id}> отклонил заявку \`${nick}\``);
   }
 
-  const entry = seen.get(nick.toLowerCase());
+  const entry = seen.get(nick);
   if (entry) entry.decidedBy = interaction.user.id;
 
   const embed = EmbedBuilder.from(interaction.message.embeds[0])
