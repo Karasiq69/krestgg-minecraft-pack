@@ -61,6 +61,11 @@ hash = "8c91080e610d7c8c40ae6445d36af1cf591fe1ebf70718b3e6d4714232b23592"
 metafile = true
 
 [[files]]
+file = "mods/glitchcore.pw.toml"
+hash = "c600911d4b263b38aa38cbbbb144214f95a76dbd10adf94c78a00d65b35910a2"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "fcd0dedf8a47b5e5e298cb9e26fe8f9bb3be8ac892e7ad238f8f781c0faaf2bd"
 metafile = true
@@ -123,6 +128,11 @@ metafile = true
 [[files]]
 file = "mods/presence-footsteps.pw.toml"
 hash = "958221cc09f9ac42c5133c986c34d22e57648472eeb215815caf0581d5f1ef2e"
+metafile = true
+
+[[files]]
+file = "mods/serene-seasons.pw.toml"
+hash = "f358570a4d9d8e01e9eee44f7a13d4d16eaaafd5ca48f25e1caae4509ea1796f"
 metafile = true
 
 [[files]]
