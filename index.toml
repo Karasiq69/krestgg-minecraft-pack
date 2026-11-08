@@ -51,6 +51,11 @@ hash = "af4c96fcc59bec634f457bf7693496f203ceaac28a180e84a73c488a1a2895cb"
 metafile = true
 
 [[files]]
+file = "mods/farmers-delight-refabricated.pw.toml"
+hash = "c12b94c159caab53bdb7bbed9b7f825cf3902cb01a96f966fef3064fb08c9e6a"
+metafile = true
+
+[[files]]
 file = "mods/fog.pw.toml"
 hash = "59d4cdd047383eefb01ed44dcced981f0d055b24d6905cf2029232ee91d4a654"
 metafile = true

@@ -19,6 +19,8 @@
   светит), 3D Skin Layers, Not Enough Animations.
 - **Сезоны** — Serene Seasons: весна, лето, осень и зима сменяют друг друга, зимой идёт снег и
   замерзает вода, урожай растёт не в любой сезон.
+- **Фермерство** — Farmer's Delight: новые культуры, разделочная доска, кастрюля и десятки блюд.
+  На сервере ещё работает сбор урожая правым кликом (RightClickHarvest), мод для этого не нужен.
 - **Производительность** — Sodium, ImmediatelyFast, Entity Culling, More Culling, Dynamic FPS.
 - Мод-меню и библиотеки: Mod Menu, Fabric API, Cloth Config, YACL и прочие зависимости.
 
